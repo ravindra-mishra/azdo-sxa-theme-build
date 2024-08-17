@@ -1,0 +1,47 @@
+{
+  "namespace": "Project.Site1.Website",
+  "references": [
+    "Foundation.*",
+    "Feature.*",
+    "Project.Common.Website"
+  ],
+  "items": {
+    "includes": [
+      {
+        "name": "Templates",
+        "path": "/sitecore/templates/Project/Tenant/Site1",
+        "database": "master"
+      },
+      {
+        "name": "Branches",
+        "path": "/sitecore/templates/Branches/Project/Tenant/Site1",
+        "database": "master"
+      },
+      {
+        "name": "Renderings",
+        "path": "/sitecore/layout/Renderings/Project/Tenant/Site1",
+        "database": "master"
+      },
+      {
+        "name": "Settings",
+        "path": "/sitecore/system/Settings/Project/Tenant/Site1",
+        "database": "master"
+      },
+      {
+        "name": "Themes",
+        "path": "/sitecore/media library/Themes/Tenant/Site1",
+        "database": "master",
+        "rules": [
+          {
+            "path": "/Site1/styles",
+            "scope": "ignored"
+          },
+          {
+            "path": "/Site1/scripts",
+            "scope": "ignored"
+          }
+        ]
+      }
+    ]
+  }
+}

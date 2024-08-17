@@ -1,0 +1,41 @@
+{
+  "namespace": "Project.Common.Website",
+  "references": [
+    "Foundation.*",
+    "Feature.*"
+  ],
+  "items": {
+    "includes": [
+      {
+        "name": "Templates",
+        "path": "/sitecore/templates/Project/Tenant/Common",
+        "database": "master"
+      },
+      {
+        "name": "Media",
+        "path": "/sitecore/media library/Project/Tenant/shared",
+        "database": "master"
+      },
+      {
+        "name": "BaseThemes",
+        "path": "/sitecore/media library/Base Themes/Tenant",
+        "database": "master"
+      },
+      {
+        "name": "Themes",
+        "path": "/sitecore/media library/Themes/Tenant/Common",
+        "database": "master",
+        "rules": [
+          {
+            "path": "/Common/styles",
+            "scope": "ignored"
+          },
+          {
+            "path": "/Common/scripts",
+            "scope": "ignored"
+          }
+        ]
+      }
+    ]
+  }
+}

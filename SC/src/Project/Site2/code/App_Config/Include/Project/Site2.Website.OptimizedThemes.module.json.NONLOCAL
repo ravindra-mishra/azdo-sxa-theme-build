@@ -1,0 +1,31 @@
+{
+  "namespace": "Project.Site2.Website.OptimizedThemes",
+  "references": [
+    "Project.Common.Website.OptimizedThemes",
+    "Project.Site2.Website"
+  ],
+  "items": {
+    "includes": [
+      {
+        "name": "OptimizedThemes",
+        "path": "/sitecore/media library/Themes/Tenant/Site2/Site2",
+        "database": "master",
+        "scope": "descendantsOnly",
+        "rules": [
+          {
+            "path": "/styles",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/scripts",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/*",
+            "scope": "ignored"
+          }
+        ]
+      }
+    ]
+  }
+}

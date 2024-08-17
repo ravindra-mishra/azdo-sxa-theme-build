@@ -1,0 +1,30 @@
+{
+  "namespace": "Project.Common.Website.OptimizedThemes",
+  "references": [
+    "Project.Common.Website"
+  ],
+  "items": {
+    "includes": [
+      {
+        "name": "OptimizedThemes",
+        "path": "/sitecore/media library/Themes/Tenant/Common/Common",
+        "database": "master",
+        "scope": "descendantsOnly",
+        "rules": [
+          {
+            "path": "/styles",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/scripts",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/*",
+            "scope": "ignored"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+﻿[CmdletBinding()]
+param(
+    [Parameter(Mandatory = $true)]
+    [string]$ConfigFile
+)
+
+if (-Not (Test-Path -Path $ConfigFile -PathType Leaf)) {
+    throw "Config File $ConfigFile does not exist"
+}
+
+# Define the path to your JSON file
+$jsonFilePath = $ConfigFile
+
+# Read the JSON file content
+$jsonContent = Get-Content -Path $jsonFilePath -Raw
+
+# Convert the JSON content to a PowerShell object
+$jsonObject = $jsonContent | ConvertFrom-Json
+
+# Remove the 'excludedFields' property if it exists
+if ($jsonObject.items.PSObject.Properties['excludedFields']) {
+    $jsonObject.items.PSObject.Properties.Remove('excludedFields')
+}
+
+# Convert the PowerShell object back to a JSON string with proper formatting
+$prettyJsonContent = $jsonObject | ConvertTo-Json -Depth 10 -Compress
+
+# Pretty-print the JSON content for readability
+$prettyJsonContent = $prettyJsonContent | ConvertFrom-Json | ConvertTo-Json -Depth 10
+
+# Save the modified and formatted JSON content back to the file with Windows-1252 encoding
+[System.IO.File]::WriteAllText($jsonFilePath, $prettyJsonContent, [System.Text.Encoding]::GetEncoding("Windows-1252"))
+
+# Output a message indicating success
+Write-Output "The 'excludedFields' section has been removed and the file has been formatted successfully."
