@@ -121,6 +121,6 @@ foreach($theme in $themes){
     Write-Host "`r`nFinished Optimization for: $projectPath"
 }
 
-& "$BuildSourcesDirectory\SC\scripts\AzurePipeline\Remove-ExcludedFieldFromConfig.ps1" -ConfigFile "$BuildSourcesDirectory\SC\src\Project\Common\code\App_Config\Include\Project\Common.Website.OptimizedThemes.module.json"
+& "$BuildSourcesDirectory\SC\scripts\AzurePipeline\Enable-ThemeOptmizationConfiguationFiles.ps1"
 
 Set-Location  ${PSScriptRoot}
